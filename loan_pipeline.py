@@ -478,13 +478,13 @@ with tab2:
                     st.button(label = "Priortize", key = "efficiency", help = "Click here to Priortize Applications")
                 
                 if len(error_applications_count_list) > 0:
-                    st.button(label = "Priortize", key = "accuracy", help = "Please be Watchful while Processing!", type = "primary")
-                    st.markdown("""<style>.stbutton-key: accuracy {background-color: red;}</style>""", unsafe_allow_html=True)
+                    st.button(label = "Priortize", key = "accuracy", help = "Please be Watchful while Processing!", type = "buttonBackgroundColor")
+                    # st.markdown("""<style>.stbutton-key: accuracy {background-color: red;}</style>""", unsafe_allow_html=True)
                     # ("<style>.metric-label, .metric-value { font-size: 5px !important; }</style>", unsafe_allow_html = True)
 
                 if len(effectivity_applications_count_list) > 0:
-                    st.button(label = "Priortize", key = "effectivity", help = "Click here to Priortize Applications", type = "buttonBackground")
-                    st.markdown("""<style>.button {background-color: rgb(204, 49, 49);}</style>""", unsafe_allow_html=True)
+                    st.button(label = "Priortize", key = "effectivity", help = "Click here to Priortize Applications", type = "buttonBackgroundColor")
+                    # st.markdown("""<style>.button {background-color: rgb(204, 49, 49);}</style>""", unsafe_allow_html=True)
                     # st.markdown("""<style>div.stButton > button:first-child {background-color: rgb(204, 49, 49);}</style>""", unsafe_allow_html=True)
             # for i in range(suggestion_check):
 
