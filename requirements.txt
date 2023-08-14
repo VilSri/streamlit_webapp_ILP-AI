@@ -1,0 +1,9 @@
+random
+DateTime==5.1
+pandas==2.0.0
+Faker==18.10.1
+numpy==1.24.2
+streamlit_aggrid==0.3.4.post3
+streamlit==1.23.1
+plotly==5.14.1
+numerize==0.12
