@@ -7,10 +7,10 @@ from st_aggrid import AgGrid, JsCode, GridOptionsBuilder, ColumnsAutoSizeMode
 from numerize.numerize import numerize
 from calendar import month_name
 
-# with ZipFile('Loan Pipeline pkl.zip', 'r') as zObject:
-#     pickle_file = zObject.extract('Loan Pipeline.pkl')
+with ZipFile('Loan Pipeline Pickle.zip', 'r') as zObject:
+    pickle_file = zObject.extract('Loan Pipeline.pkl')
 
-loan_pipeline_df = pd.read_pickle("Loan Pipeline.pkl")
+loan_pipeline_df = pd.read_pickle(pickle_file)
 
 # Set page configurations
 st.set_page_config(
@@ -355,10 +355,6 @@ with tab2:
             
             accuracy_df = suggestion_filter_df[suggestion_filter_df["Error Type"] != "No Error"]
 
-            # accuracy_average_time_to_complete = int(efficiency_df["Expected Time to Complete (minutes)"].mean())
-            # accuracy_total_time_to_complete = int(efficiency_df["Expected Time to Complete (minutes)"].sum())
-            # accuracy_total_applications = efficiency_df["Expected Time to Complete (minutes)"].count()
-
             error_applications_count_list = []
             error_type_list = []
             error_type_unique_list = []
@@ -487,7 +483,7 @@ with tab2:
                     # ("<style>.metric-label, .metric-value { font-size: 5px !important; }</style>", unsafe_allow_html = True)
 
                 if len(effectivity_applications_count_list) > 0:
-                    st.button(label = "Priortize", key = "effectivity", help = "Click here to Priortize Applications", type = "primary")
+                    st.button(label = "Priortize", key = "effectivity", help = "Click here to Priortize Applications", type = "buttonBackground")
                     st.markdown("""<style>.button {background-color: rgb(204, 49, 49);}</style>""", unsafe_allow_html=True)
                     # st.markdown("""<style>div.stButton > button:first-child {background-color: rgb(204, 49, 49);}</style>""", unsafe_allow_html=True)
             # for i in range(suggestion_check):
