@@ -7,10 +7,10 @@ from st_aggrid import AgGrid, JsCode, GridOptionsBuilder, ColumnsAutoSizeMode
 from numerize.numerize import numerize
 from calendar import month_name
 
-# with ZipFile('Loan Pipeline pkl.zip', 'r') as zObject:
-#     pickle_file = zObject.extract('Loan Pipeline.pkl')
+with ZipFile('Loan Pipeline Pickle.zip', 'r') as zObject:
+     pickle_file = zObject.extract('Loan Pipeline.pkl')
 
-loan_pipeline_df = pd.read_pickle("Loan Pipeline.pkl")
+loan_pipeline_df = pd.read_pickle(pickle_file)
 
 # Set page configurations
 st.set_page_config(
@@ -307,7 +307,7 @@ with tab2:
             productivity_total_time_to_complete = int(productivity_df["Expected Time to Complete (minutes)"].sum())
             
             productivity_applications_count_list = []
-            if productivity_total_time_to_complete :
+            if productivity_total_time_to_complete < 100:
                 for i in range(len(productivity_df)):
                     productivity_applications_count_list.append(productivity_df.index[i])
             
