@@ -358,7 +358,7 @@ with tab2:
             loan_processor_string = ", ".join(loan_processor_list)
             st.markdown("<h6 style = 'font-size: 24px; padding-top: 10px; padding-bottom: 10px;'>AI Advisor</h6>", unsafe_allow_html = True)
             st.write('')
-             if len(productivity_applications_count_list) > 0 or len(efficiency_applications_count_list) > 0 or len(error_applications_count_list) > 0: 
+            if len(productivity_applications_count_list) > 0 or len(efficiency_applications_count_list) > 0 or len(error_applications_count_list) > 0: 
                     st.markdown("<h style = 'font-size: 16px'>Hi! {}, Here are your queue recommendations for today, curated through AI/ML analysis:</h>".format(loan_processor_string), unsafe_allow_html = True)
             # st.write('')
             
