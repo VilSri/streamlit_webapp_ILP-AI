@@ -7,10 +7,10 @@ from st_aggrid import AgGrid, JsCode, GridOptionsBuilder, ColumnsAutoSizeMode
 from numerize.numerize import numerize
 from calendar import month_name
 
-# with ZipFile('Loan Pipeline pkl.zip', 'r') as zObject:
-#     pickle_file = zObject.extract('Loan Pipeline.pkl')
+with ZipFile('Loan Pipeline Pickle.zip', 'r') as zObject:
+     pickle_file = zObject.extract('Loan Pipeline.pkl')
 
-loan_pipeline_df = pd.read_pickle("Loan Pipeline.pkl")
+loan_pipeline_df = pd.read_pickle(pickle_file)
 
 # Set page configurations
 st.set_page_config(
@@ -225,7 +225,7 @@ def get_loan_progress_grid(df, int):
     """)
 
     gb_loan_progress = GridOptionsBuilder.from_dataframe(df)
-    # st.markdown("<h3 style = 'text-align: center; font-size: 25px; padding-top: 45px;'>Loan Progress</h3>", unsafe_allow_html = True)
+    st.markdown("<h3 style = 'text-align: center; font-size: 25px;'>Loan Progress</h3>", unsafe_allow_html = True)
     gb_loan_progress.configure_default_column(min_column_width = 110, resizable = True, filterable = True, sortable = True, groupable = True)
     gb_loan_progress.configure_column(field = "Loan Type", header_name = "Loan Type", wrapHeaderText = True, autoHeaderHeight = True)
     gb_loan_progress.configure_column(field = "Loan Number", header_name = "Loan Number", wrapHeaderText = True, autoHeaderHeight = True, sort = 'asc')
@@ -242,10 +242,9 @@ def get_loan_progress_grid(df, int):
     gb_loan_progress.configure_column(field = "Borrower Intent to Continue Date", header_name = "Borrower Intent to Continue Date", wrapHeaderText = True, autoHeaderHeight = True)
     grid_options_loan_progress = gb_loan_progress.build()
     loan_progress_table = AgGrid(df, gridOptions = grid_options_loan_progress, columns_auto_size_mode = ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW, fit_columns_on_grid_load = True, height = 400, reload_data = True, allow_unsafe_jscode = True)
-    # st.markdown("<h6 style = font-size: 5px;'>Closed -- Loan process is completed &emsp; Pending -- Awaits document to be submitted</h6>", unsafe_allow_html = True)
+    st.markdown("<h6 style = font-size: 5px;'>Closed -- Loan process is completed &emsp; Pending -- Awaits document to be submitted</h6>", unsafe_allow_html = True)
     return loan_progress_table
     
-
 # Tab views
 tab1, tab2, tab3 = st.tabs(["Key Metrics", "Loan Pipeline", "AI Assist"])
 
@@ -415,7 +414,6 @@ with tab2:
     st.write('----')
 
     with st.container():
-        st.markdown("<h3 style = 'text-align: center; font-size: 25px'>Loan Progress</h3>", unsafe_allow_html = True)
         if st.session_state == '':
             st.session_state = 'False'
         
@@ -451,16 +449,9 @@ with tab2:
             except:
                 pass
     
-        st.markdown("<h6 style = font-size: 5px;'>Closed -- Loan process is completed &emsp; Pending -- Awaits document to be submitted</h6>", unsafe_allow_html = True)
-
-    st.write('---')
+        st.write('---')
 
     with st.container():
-        # @st.cache_data
-        # def get_data_document_expiration_alerts():
-        #     return document_expiration_alerts_df
-    
-           
         gb_document_expiration_alerts = GridOptionsBuilder.from_dataframe(frequent_data_document_expiration_alerts)
     
         cellstyle_jscode_document_expiration_alerts = JsCode("""
