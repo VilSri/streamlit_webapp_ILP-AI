@@ -443,7 +443,7 @@ with tab2:
             try:
                 if st.session_state['effectiveness'] == True:
                     effectiveness_priority_df = loan_progress_df[loan_progress_df.index.isin(effectiveness_applications_count_list)]
-                    get_loan_progress_grid(effectiveness_priority_df, 250)
+                    get_loan_progress_grid(effectiveness_priority_df, 300)
             except:
                 pass
     
