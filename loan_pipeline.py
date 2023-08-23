@@ -352,7 +352,10 @@ with tab2:
             for i in range(len(suggestion_filter_df)):
                 if suggestion_filter_df.iloc[i, suggestion_filter_df.columns.get_loc("Loan Processor")] not in loan_processor_list:
                     loan_processor_list.append(suggestion_filter_df.iloc[i, suggestion_filter_df.columns.get_loc("Loan Processor")])
-            loan_processor_string = ", ".join(loan_processor_list)
+            loan_processor_name_list = []
+            for i in range(len(loan_processor_list)):
+                loan_processor_name_list.append(loan_processor_list[i].split(' ', 1)[0])
+            loan_processor_string = ", ".join(loan_processor_name_list)
             st.markdown("<h6 style = 'font-size: 24px; padding-top: 10px; padding-bottom: 10px;'>AI Advisor</h6>", unsafe_allow_html = True)
             if len(productivity_applications_count_list) > 0 or len(efficiency_applications_count_list) > 0 or len(error_applications_count_list) > 0: 
                     st.markdown("<h style = 'font-size: 16px'>Hi! {}, here are your curated queue insights for the day:</h>".format(loan_processor_string), unsafe_allow_html = True)
