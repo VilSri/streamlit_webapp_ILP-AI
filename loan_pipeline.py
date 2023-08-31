@@ -508,7 +508,7 @@ with tab3:
    # Predefined list of questions and corresponding answers
     questions = ["What is the productivity of loan processing over last 3 months?", 
                  "Which type of application having high cycle time?"]
-    answers = ["Overall Productivity for Apr'23 - 90%,  May'23 - 92%,  Jun'23 - 90%", 
+    answers = ["Overall productivity for Apr'23 - 90%,  May'23 - 92%,  Jun'23 - 90%", 
                "FHA loan types processed with 14-17 days on average."]
 
     # Display the text input and submit button
