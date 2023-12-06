@@ -85,11 +85,10 @@ with st.sidebar:
     )
     session_state.loan_officer = loan_officer
 
-    loan_processor = st.multiselect(
+    loan_processor = st.selectbox(
         label = 'Select Loan Processor',
-        options = sorted(df['Loan Processor'].dropna().unique()),
-        default = sorted(df['Loan Processor'].dropna().unique())[1],
-    )
+        options = sorted(df['Loan Processor'].dropna().unique())
+        )
     session_state.loan_processor = loan_processor
 
     loan_closer = st.multiselect(
